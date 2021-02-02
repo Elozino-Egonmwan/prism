@@ -5,7 +5,7 @@ lang='en'
 
 sp = spm.SentencePieceProcessor()
 sp.Load(os.environ['MODEL_DIR'] + '/spm.model')
-sents = ['Among other things, the developments in terms of turnover, employment, warehousing and prices are recorded.', ]
+sents = ['"ducklingtime0" all bills due', 'what invoices are outstanding', 'who owes me money']
 sp_sents = [' '.join(sp.EncodeAsPieces(sent)) for sent in sents]
 
 with open('test.src', 'wt') as fout:
