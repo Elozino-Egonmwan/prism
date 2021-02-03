@@ -460,7 +460,8 @@ def main(args):
     if has_target:
         print('| Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()))
 
-    return scorer
+    #return scorer
+    return hypo_str
 
 
 def cli_main():
@@ -471,8 +472,9 @@ def cli_main():
     parser.add_argument('--prism_b', type=float, help='prism_a ** prism_b. reasonable starting point: 4.0', required=True) 
     
     args = options.parse_args_and_arch(parser)
-    main(args)
+    return main(args)
 
 
 if __name__ == '__main__':
-    cli_main()
+    paraphrase = cli_main()
+    print("paraphrase",paraphrase)
