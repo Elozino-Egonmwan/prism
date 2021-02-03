@@ -9,7 +9,10 @@ sp = spm.SentencePieceProcessor()
 sp.Load(os.environ['MODEL_DIR'] + '/spm.model')
 
 def getSents(sents):
+    print("before:", sents)
     sents=paraphrase(sents)
+    print("after:", sents)
+    
     sp_sents = [' '.join(sp.EncodeAsPieces(sent)) for sent in sents]
 
     with open('test.src', 'wt') as fout:
