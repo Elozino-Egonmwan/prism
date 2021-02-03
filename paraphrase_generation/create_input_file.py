@@ -9,7 +9,7 @@ sp = spm.SentencePieceProcessor()
 sp.Load(os.environ['MODEL_DIR'] + '/spm.model')
 
 def getSents(sents):
-    print("before:", sents)
+    print("before:", sents[0])
     sents=paraphrase(sents)
     print("after:", sents)
     
