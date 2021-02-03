@@ -2,14 +2,14 @@ import os
 import sentencepiece as spm
 import argparse
 import sys
-
+from mech_paraphraser_mini import paraphrase
 lang='en'
 
 sp = spm.SentencePieceProcessor()
 sp.Load(os.environ['MODEL_DIR'] + '/spm.model')
 
 def getSents(sents):
-    #sents = ['Among other things, the developments in terms of turnover, employment, warehousing and prices are recorded.', ]
+    sents=paraphrase(sents)
     sp_sents = [' '.join(sp.EncodeAsPieces(sent)) for sent in sents]
 
     with open('test.src', 'wt') as fout:
