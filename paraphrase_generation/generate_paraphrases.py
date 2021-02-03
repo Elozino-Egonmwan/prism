@@ -461,6 +461,7 @@ def main(args):
         print('| Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()))
 
     #return scorer
+    hypo_str= hypo_str.replace(" ","").replace("▁"," ")
     return hypo_str
 
 
