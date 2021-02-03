@@ -1,6 +1,7 @@
 import os
 import sentencepiece as spm
 import argparse
+import sys
 
 lang='en'
 
@@ -25,4 +26,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--sents', nargs='+')
     args = parser.parse_args()
+    print(args.sents)
+    sys.exit()
     getSents(args.sents)
