@@ -279,7 +279,7 @@ def main(args):
 
     if args.max_tokens is None and args.max_sentences is None:
         args.max_tokens = 12000
-    print(args)
+    #print(args)
 
     try:
         print(args.print_step)
