@@ -359,6 +359,7 @@ def main(args):
         scorer = bleu.Scorer(tgt_dict.pad(), tgt_dict.eos(), tgt_dict.unk())
     num_sentences = 0
     has_target = True
+    prism_paraphrases=[]
     with progress_bar.build_progress_bar(args, itr) as t:
         wps_meter = TimeMeter()
         for sample in t:
@@ -450,6 +451,9 @@ def main(args):
                             scorer.add_string(target_str, hypo_str)
                         else:
                             scorer.add(target_tokens, hypo_tokens)
+                            
+                    hypo_str= hypo_str.replace(" ","").replace("▁"," ").replace("<en> ","")
+                    prism_paraphrases.append(hypo_str)
 
             wps_meter.update(num_generated_tokens)
             t.log({'wps': round(wps_meter.avg)})
@@ -460,9 +464,8 @@ def main(args):
     if has_target:
         print('| Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()))
 
-    print("hypo",hypo_str)
-    hypo_str= hypo_str.replace(" ","").replace("▁"," ").replace("<en> ","")
-    return hypo_str
+    
+    return prism_paraphrases
 
 
 def cli_main():
