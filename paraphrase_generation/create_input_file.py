@@ -10,7 +10,7 @@ sp.Load(os.environ['MODEL_DIR'] + '/spm.model')
 
 def getSents(sents):
     print("before:", sents[0])
-    sents=paraphrase(sents)
+    sents=paraphrase(sents[0])
     print("after:", sents)
     
     sp_sents = [' '.join(sp.EncodeAsPieces(sent)) for sent in sents]
