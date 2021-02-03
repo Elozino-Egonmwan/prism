@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SENTS=$1
+SENTS="$1"
 
 #Check that arguments have been passed in
 : ${1:?'Requires sentence(s) to be paraphrased! Exiting...'}
