@@ -24,7 +24,7 @@ def getSents(sents):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--sents', nargs='+')
+    parser.add_argument('--sents', type=str, nargs='+')
     args = parser.parse_args()
     print(args.sents)
     sys.exit()
