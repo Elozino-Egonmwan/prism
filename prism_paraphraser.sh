@@ -40,8 +40,8 @@ if ! [ -x "$(command -v fairseq-preprocess)" ]; then
 fi
 
 #create file for paraphrase generation
-echo $SENTS
-python create_input_file.py --sents ${SENTS}
+echo "$SENTS"
+python create_input_file.py --sents "${SENTS}"
 
 #remove test_bin if it exists
 if [ -d "test_bin" ]; then
