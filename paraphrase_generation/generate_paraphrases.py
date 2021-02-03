@@ -460,7 +460,7 @@ def main(args):
     if has_target:
         print('| Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()))
 
-    #return scorer
+    print("hypo",hypo_str)
     hypo_str= hypo_str.replace(" ","").replace("▁"," ").replace("<en> ","")
     return hypo_str
 
