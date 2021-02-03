@@ -47,10 +47,12 @@ if [ -d "test_bin" ]; then
   rm -Rf "test_bin"
 fi
 
+#create test bin with sents to be paraphrased
 fairseq-preprocess --source-lang src --target-lang tgt  \
     --joined-dictionary  --srcdict $MODEL_DIR/dict.tgt.txt \
     --trainpref  test  --validpref test  --testpref test --destdir test_bin
 
+#generate paraphrases
 python paraphrase_generation/generate_paraphrases.py test_bin --batch-size 8 \
    --prefix-size 1 \
    --path $MODEL_DIR/checkpoint.pt \
