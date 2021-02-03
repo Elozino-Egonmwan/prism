@@ -53,7 +53,7 @@ fairseq-preprocess --source-lang src --target-lang tgt  \
     --trainpref  test  --validpref test  --testpref test --destdir test_bin
 
 #generate paraphrases
-python paraphrase_generation/generate_paraphrases.py test_bin --batch-size 8 \
+python -W ignore -u paraphrase_generation/generate_paraphrases.py test_bin --batch-size 8 \
    --prefix-size 1 \
    --path $MODEL_DIR/checkpoint.pt \
    --prism_a 0.003 --prism_b 4
