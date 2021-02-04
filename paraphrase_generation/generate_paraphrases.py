@@ -464,7 +464,7 @@ def main(args):
     if has_target:
         print('| Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()))
         
-    with open('output_paraphrases.txt', 'wb') as fout:
+    with open('output_paraphrases.txt', 'wt') as fout:
         for sent in prism_paraphrases:
             fout.write(sent + '\n')
 
