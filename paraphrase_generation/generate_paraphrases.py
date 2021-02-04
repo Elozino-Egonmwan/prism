@@ -463,6 +463,10 @@ def main(args):
         num_sentences, gen_timer.n, gen_timer.sum, num_sentences / gen_timer.sum, 1. / gen_timer.avg))
     if has_target:
         print('| Generate {} with beam={}: {}'.format(args.gen_subset, args.beam, scorer.result_string()))
+        
+    with open('output_paraphrases.txt', 'wb') as fout:
+        for sent in prism_paraphrases:
+            fout.write(sent + '\n')
 
     
     return prism_paraphrases
